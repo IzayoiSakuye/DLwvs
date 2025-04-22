@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+<html>
+<title>Search Results</title>
+You have an error in your SQL syntax
+</html>
