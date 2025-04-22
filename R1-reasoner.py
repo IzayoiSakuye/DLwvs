@@ -6,21 +6,14 @@ client = OpenAI(
     base_url="https://api.deepseek.com"
 )
 
-# 对应的请求与响应数据
-web_request = """GET /search.php?q=1' OR '1'='1 HTTP/1.1
-Host: vulnerable-website.com
-User-Agent: Mozilla/5.0
-"""
 
-web_response = """HTTP/1.1 200 OK
-Content-Type: text/html
 
-<html>
-<title>Search Results</title>
-You have an error in your SQL syntax
-</html>
-"""
+# 读取文件中对应的请求与响应数据
+with open('input_request.txt', 'r') as file:
+    web_request = file.read()
 
+with open('input_response.txt', 'r') as file:
+    web_response = file.read()
 '''
 构造prompt，让大模型协助判断漏洞
 '''
@@ -48,5 +41,11 @@ response = client.chat.completions.create(
 reasoning = getattr(response.choices[0].message, "reasoning_content", "无详细推理")
 answer = response.choices[0].message.content
 
-print("推理过程：\n", reasoning)
-print("\n检测结果：\n", answer)
+# 将结果输出至文件
+with open('output_reasoning.txt', 'w') as file:
+    file.write(reasoning)
+with open('output_answer.txt', 'w') as file:
+    file.write(answer)
+
+# print("推理过程：\n", reasoning)
+# print("\n检测结果：\n", answer)
