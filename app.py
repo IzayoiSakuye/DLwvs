@@ -19,7 +19,7 @@ def detect_vulnerability():
     # 提取出url参数
     url = data.get('url','')
     # 判断输入的url是否合理
-    if not url.startwith(('http://', 'https://')):
+    if not url.startswith(('http://', 'https://')):
         return jsonify({'error': '无效的url格式'}), 400
 
     '''
@@ -60,7 +60,8 @@ def dist_answer(text):
     method = re.search(r'测试方法：\s*(.+?)(\n\n|$)', text, re.DOTALL)
 
     return {
-        '预期漏洞': vul.group(1) if vul else '可能无漏洞',
-        '测试方法': method.group(1) if method else '无'
+        '测试方法': method.group(1) if method else '无',
+        '预期漏洞': vul.group(1) if vul else '可能无漏洞'
     }
 
+app.run()
