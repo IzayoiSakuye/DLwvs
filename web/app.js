@@ -23,9 +23,9 @@ async function startDetection() {
 
       // 更新结果
       document.getElementById('vulnerabilityResult').innerHTML = 
-          data.expected_vulnerability || '未检测到明显漏洞';
+          (data.vul || '未检测到明显漏洞').replace(/\n/g, '<br>');
       document.getElementById('testingMethodResult').innerHTML = 
-          data.testing_method || '无需特别测试方法';
+          (data.method || '无需特别测试方法').replace(/\n/g, '<br>');
   } catch (error) {
       console.error('检测失败:', error);
       document.getElementById('vulnerabilityResult').innerHTML = '检测失败，请重试';
