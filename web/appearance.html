@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Web安全检测系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Web安全漏洞检测</h1>
+        
+        <div class="input-section">
+            <input type="url" id="urlInput" placeholder="请输入待检测的URL">
+            <button onclick="startDetection()">开始检测</button>
+        </div>
+
+        <div class="result-section">
+            <div class="result-card">
+                <h3>预期漏洞</h3>
+                <div id="vulnerabilityResult" class="result-content">等待检测...</div>
+            </div>
+            
+            <div class="result-card">
+                <h3>测试方法</h3>
+                <div id="testingMethodResult" class="result-content">等待检测...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
