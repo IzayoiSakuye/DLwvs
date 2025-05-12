@@ -4,7 +4,7 @@ import re # 正则表达式
 
 # 输入API与URL
 client = OpenAI(
-    api_key="sk-f07f89483673443b83ffc1757c998123",
+    api_key="Your Key",
     base_url="https://api.deepseek.com"
 )
 
