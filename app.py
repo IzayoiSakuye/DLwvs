@@ -4,7 +4,7 @@ import requests
 import time
 
 client = OpenAI(
-    api_key="sk-kV59IKjNe5B46S8TB5E233E2A6844b409f3a7b5c8cD3C98a",
+    api_key=" ",
     base_url="https://api.v3.cm/v1/"
 )
 
